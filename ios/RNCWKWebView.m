@@ -124,6 +124,7 @@ static NSURLCredential* clientAuthenticationCredential;
       wkWebViewConfig.processPool = [[RNCWKProcessPoolManager sharedManager] sharedProcessPool];
     }
     wkWebViewConfig.userContentController = [WKUserContentController new];
+    [wkWebViewConfig.preferences setValue:@YES forKey:@"allowFileAccessFromFileURLs"];
 
     if (_messagingEnabled) {
       [wkWebViewConfig.userContentController addScriptMessageHandler:self name:MessageHandlerName];
